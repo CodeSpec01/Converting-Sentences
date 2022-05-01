@@ -11,6 +11,36 @@ start_over = input("Type (A) to convert sentence from alphabet to numbers, Type 
 if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
   start_over = start(start_over)
 
+# The Help Menu -----------------------------------------------------------------------------------------------------------------------------------------------------
+if start_over == "h" :
+  print("\nThe Help Menu -----------------------------------------------------------------")
+  print("Type (A) to convert sentence from alphabet to numbers \nType (N) to convert numbers into alphabet \nType (H) for help and information \nType (E) if you want to exit the code \n▶ The letters can be written as capital or small.")
+  print("\nWhile converting sentence from alphabet to numbers you just have to write the sentence like (Hello There) ")
+  print("While converting sentence from numbers to alphabet put (-) after each letter as number and (*-) as space between 2 words as number. For example (Hello There => 8-5-12-12-15-*-20-8-5-18-5)")
+  print("\nFor information on how the program works press (I)\n")
+
+  # Asking the user to continue , change or stop converting -------------------------------------------------------------------------------------------------------
+  start_over = input("Enter (A) or (N) to convert. Enter (H) for help and (E) to exit: ").lower()
+
+  # Making sure that the answer is either "y" or "n" if not then we send the user input to the first function to get the correct answer ----------------------------
+  if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
+    start_over = start(start_over)
+
+# The Information Menu ----------------------------------------------------------------------------------------------------------------------------------------------
+if start_over == "i":
+  print("\nThis is a basic program used to convert numbers into alphabets and alphabets into numbers via a simple dictionary.")
+  print('The program converts alphabets and numbers conversion is done like this -')
+  print('"a" is converted into "1" and "1" is converted into "a" and similarly in alphabetical order from a as 1 to z as 26.')
+  print("\nFor more information , doubts or suggestions feel free to mail me at online.codespec@gmail.com\n")
+
+  # Asking the user to continue , change or stop converting -------------------------------------------------------------------------------------------------------
+  start_over = input("Enter (A) or (N) to convert. Enter (H) for help and (E) to exit: ").lower()
+
+  # Making sure that the answer is either "y" or "n" if not then we send the user input to the first function to get the correct answer ----------------------------
+  if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
+    start_over = start(start_over)
+
+
 # Actual Code of changing alphabets to Numbers -----------------------------------------------------------------------------------------------------------------------
 while start_over == "a" :
 
@@ -123,7 +153,7 @@ while start_over == "n":
       output += number_to_alphabet_dictionary[number]
     
     # Printing the result --------------------------------------------------------------------------------------------------------------------------------------------
-    print(output)
+    print("\n",output,"\n")
 
     # Asking the user to continue , change or stop converting -------------------------------------------------------------------------------------------------------
     start_over = input("Enter (A) or (N) to convert. Enter (H) for help and (E) to exit: ").lower()
@@ -135,44 +165,16 @@ while start_over == "n":
       
   # Tackling the key error (basically if a alphabet is written instead of a number) ------------------------------------------------------------------------------------
   except KeyError:
-    print("Numbers should be between 1 and 26 only")
+    print("\nNumbers should be between 1 and 26 only\n")
 
   
   # A just in case exception handler to maintain the flow of program -------------------------------------------------------------------------------------------------
   except Exception as e :
     print(e)
 
-# The Help Menu -----------------------------------------------------------------------------------------------------------------------------------------------------
-if start_over == "h" :
-  print("\nThe Help Menu -----------------------------------------------------------------")
-  print("Type (A) to convert sentence from alphabet to numbers \nType (N) to convert numbers into alphabet \nType (H) for help and information \nType (E) if you want to exit the code \n▶The letters can be written as capital or small.")
-  print("\nWhile converting sentence from alphabet to numbers you just have to write the sentence like (Hello There) ")
-  print("While converting sentence from numbers to alphabet put (-) after each letter as number and (*-) as space between 2 words as number. For example (Hello There => 8-5-12-12-15-*-20-8-5-18-5)")
-  print("For information on how the program works press (I)")
-
-  # Asking the user to continue , change or stop converting -------------------------------------------------------------------------------------------------------
-  start_over = input("Enter (A) or (N) to convert. Enter (H) for help and (E) to exit: ").lower()
-
-  # Making sure that the answer is either "y" or "n" if not then we send the user input to the first function to get the correct answer ----------------------------
-  if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
-    start_over = start(start_over)
-
-# The Information Menu ----------------------------------------------------------------------------------------------------------------------------------------------
-if start_over == "i":
-  print("\nThis is a basic program used to convert numbers into alphabets and alphabets into numbers via a simple dictionary.")
-  print('The program converts alphabets and numbers conversion is done like this -')
-  print('"a" is converted into "1" and "1" is converted into "a" and similarly in alphabetical order from a as 1 to z as 26.')
-  print("For more information , doubts or suggestions feel free to mail me at online.codespec@gmail.com")
-
-  # Asking the user to continue , change or stop converting -------------------------------------------------------------------------------------------------------
-  start_over = input("Enter (A) or (N) to convert. Enter (H) for help and (E) to exit: ").lower()
-
-  # Making sure that the answer is either "y" or "n" if not then we send the user input to the first function to get the correct answer ----------------------------
-  if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
-    start_over = start(start_over)
-
+    
 # Stoping the program when asked by user to stop -------------------------------------------------------------------------------------------------------------------- 
-while start_over == "n" :
+while start_over == "e" :
   print(f"\nThanks for using the Program.\nThis Program is written by CodeSpec :) \nFor any questions feel free to email me at online.codespec@gmail.com\nCheers\n")
   break
   
