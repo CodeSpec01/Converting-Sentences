@@ -37,6 +37,10 @@ def help(start_over):
     if start_over == "n":
       start_over = number_to_alphabet(start_over)
 
+    # Main to exit menu ---------------------------------------------------------------------------------------------------------------
+    if start_over == "e":
+      start_over = exit(start_over)
+
 # The Information Menu ----------------------------------------------------------------------------------------------------------------------------------------------
 def information(start_over):
   if start_over == "i":
@@ -67,6 +71,10 @@ def information(start_over):
     # Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
     if start_over == "n":
       start_over = number_to_alphabet(start_over)
+
+    # Main to exit menu ---------------------------------------------------------------------------------------------------------------
+    if start_over == "e":
+      start_over = exit(start_over)
 
 
 # Actual Code of changing alphabets to Numbers -----------------------------------------------------------------------------------------------------------------------
@@ -140,6 +148,10 @@ def alphabet_to_number(start_over):
     # Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
     if start_over == "a":
       start_over = alphabet_to_number(start_over)
+
+    # Main to exit menu ---------------------------------------------------------------------------------------------------------------
+    if start_over == "e":
+      start_over = exit(start_over)
 
   # Tackling the key error (basically if a number is written instead of a letter) ------------------------------------------------------------------------------------
   except KeyError:
@@ -224,6 +236,10 @@ def number_to_alphabet(start_over):
     if start_over == "a":
       start_over = alphabet_to_number(start_over)
 
+    # Main to exit menu ---------------------------------------------------------------------------------------------------------------
+    if start_over == "e":
+      start_over = exit(start_over)
+
       
   # Tackling the key error (basically if a alphabet is written instead of a number) ------------------------------------------------------------------------------------
   except KeyError:
@@ -234,7 +250,13 @@ def number_to_alphabet(start_over):
   except Exception as e :
     print(e)
     start_over = number_to_alphabet(start_over)
-  
+
+# Stoping the program when asked by user to stop -------------------------------------------------------------------------------------------------------------------- 
+def exit(start_over):
+  if start_over == "e":
+    print(f"\nThanks for using the Program.\nThis Program is written by CodeSpec :) \nFor any questions feel free to email me at online.codespec@gmail.com\nCheers\n")
+
+    
 # starting first time input ------------------------------------------------------------------------------------------------------------------------------------------
 start_over = input("Type (A) to convert sentence from alphabet to numbers, Type (N) to convert numbers into alphabet, Type (H) for help and information and Type (E) if you want to exit the code: ").lower()
 
@@ -257,8 +279,3 @@ if start_over == "a":
 # Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
 if start_over == "n":
   start_over = number_to_alphabet(start_over)
-
-# Stoping the program when asked by user to stop -------------------------------------------------------------------------------------------------------------------- 
-while start_over == "e" :
-  print(f"\nThanks for using the Program.\nThis Program is written by CodeSpec :) \nFor any questions feel free to email me at online.codespec@gmail.com\nCheers\n")
-  break
