@@ -1,11 +1,11 @@
-# Function to start the program from console -----------------------------------------------------------------------------------------------------------------------
+# Function (I) that makes user to choose from given options ----------------------------------------------------------------------------------
 def start(start_over):
   while start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
     start_over = input("Please Enter either (A) or (N) to convert messages. Enter (H) for help and (E) to exit: ").lower()
   return start_over
 
   
-# The Help Menu -----------------------------------------------------------------------------------------------------------------------------------------------------
+# Function (II) The Help Menu ------------------------------------------------------------------------------------------------------------
 def help(start_over):
   if start_over == "h" :
     print("\nThe Help Menu -----------------------------------------------------------------")
@@ -17,31 +17,31 @@ def help(start_over):
     # Asking the user to continue , change or stop converting -------------------------------------------------------------------------------------------------------
     start_over = input("Enter (A) or (N) to convert. Enter (H) for help and (E) to exit: ").lower()
 
-    # Makes the question to be asked again if user input wrong letter ----------------------------------------------------------------------------------------------------
+    # sends the user input to Function (I) -----------------------------------------------------------------------------------------------
     if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
       start_over = start(start_over)
     
-    # Main sending to help menu ---------------------------------------------------------------------------------------------------------
+    # sends the user input to Function (II) ----------------------------------------------------------------------------------------------
     if start_over == "h":
       start_over = help(start_over)
     
-    # Main sending to information menu ---------------------------------------------------------------------------------------------------------------
+    # sends the user input to Function (III) ---------------------------------------------------------------------------------------------
     if start_over == "i":
       start_over = information(start_over)
     
-    # Main sending from Alphabet to numbers menu -------------------------------------------------------------------------------------------
+    # sends the user input to Function (IV) ----------------------------------------------------------------------------------------------
     if start_over == "a":
       start_over = alphabet_to_number(start_over)
     
-    # Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
+    # sends the user input to Function (V) -----------------------------------------------------------------------------------------------
     if start_over == "n":
       start_over = number_to_alphabet(start_over)
 
-    # Main to exit menu ---------------------------------------------------------------------------------------------------------------
+    # sends the user input to Function (VI) ----------------------------------------------------------------------------------------------
     if start_over == "e":
       start_over = exit(start_over)
 
-# The Information Menu ----------------------------------------------------------------------------------------------------------------------------------------------
+# Function (III) The Information Menu ---------------------------------------------------------------------------------------------------
 def information(start_over):
   if start_over == "i":
     print("\nThis is a basic program used to convert numbers into alphabets and alphabets into numbers via a simple dictionary.")
@@ -51,33 +51,32 @@ def information(start_over):
   
     # Asking the user to continue , change or stop converting -------------------------------------------------------------------------------------------------------
     start_over = input("Enter (A) or (N) to convert. Enter (H) for help and (E) to exit: ").lower()
-  
-    # Makes the question to be asked again if user input wrong letter ----------------------------------------------------------------------------------------------------
+
+    # sends the user input to Function (I) -----------------------------------------------------------------------------------------------
     if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
       start_over = start(start_over)
     
-    # Main sending to help menu ---------------------------------------------------------------------------------------------------------
+    # sends the user input to Function (II) ----------------------------------------------------------------------------------------------
     if start_over == "h":
       start_over = help(start_over)
     
-    # Main sending to information menu ---------------------------------------------------------------------------------------------------------------
+    # sends the user input to Function (III) ---------------------------------------------------------------------------------------------
     if start_over == "i":
       start_over = information(start_over)
     
-    # Main sending from Alphabet to numbers menu -------------------------------------------------------------------------------------------
+    # sends the user input to Function (IV) ----------------------------------------------------------------------------------------------
     if start_over == "a":
       start_over = alphabet_to_number(start_over)
     
-    # Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
+    # sends the user input to Function (V) -----------------------------------------------------------------------------------------------
     if start_over == "n":
       start_over = number_to_alphabet(start_over)
 
-    # Main to exit menu ---------------------------------------------------------------------------------------------------------------
+    # sends the user input to Function (VI) ----------------------------------------------------------------------------------------------
     if start_over == "e":
       start_over = exit(start_over)
 
-
-# Actual Code of changing alphabets to Numbers -----------------------------------------------------------------------------------------------------------------------
+# Function (IV) Actual Code of changing alphabets to Numbers ----------------------------------------------------------------------------
 def alphabet_to_number(start_over):
   
   #  Using try and except to counter key error -----------------------------------------------------------------------------------------------------------------------
@@ -129,47 +128,47 @@ def alphabet_to_number(start_over):
     # Asking the user to continue , change or stop converting -------------------------------------------------------------------------------------------------------
     start_over = input("Enter (A) or (N) to convert. Enter (H) for help and (E) to exit: ").lower()
 
-    # Making it go to help menu
-    if start_over == "h" :
-      start_over = help(start_over)
-
-    # Making it go to information menu
-    if start_over == "i" :
-      start_over = information(start_over)
-
-    # Making sure that the answer is either "y" or "n" if not then we send the user input to the first function to get the correct answer ----------------------------
+    # sends the user input to Function (I) -----------------------------------------------------------------------------------------------
     if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
       start_over = start(start_over)
-
-    # Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
+    
+    # sends the user input to Function (II) ----------------------------------------------------------------------------------------------
+    if start_over == "h":
+      start_over = help(start_over)
+    
+    # sends the user input to Function (III) ---------------------------------------------------------------------------------------------
+    if start_over == "i":
+      start_over = information(start_over)
+    
+    # sends the user input to Function (IV) ----------------------------------------------------------------------------------------------
+    if start_over == "a":
+      start_over = alphabet_to_number(start_over)
+    
+    # sends the user input to Function (V) -----------------------------------------------------------------------------------------------
     if start_over == "n":
       start_over = number_to_alphabet(start_over)
 
-    # Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
-    if start_over == "a":
-      start_over = alphabet_to_number(start_over)
-
-    # Main to exit menu ---------------------------------------------------------------------------------------------------------------
+    # sends the user input to Function (VI) ----------------------------------------------------------------------------------------------
     if start_over == "e":
       start_over = exit(start_over)
-
-  # Tackling the key error (basically if a number is written instead of a letter) ------------------------------------------------------------------------------------
+      
+  # Tackling the key error (basically if a number is written instead of a letter) ------------------------------------------------------
   except KeyError:
     print("\nOnly English Alphabets from a - z are allowed.\n")
     start_over = alphabet_to_number(start_over)
 
-  # A just in case exception handler to maintain the flow of program -------------------------------------------------------------------------------------------------
+  # A just in case exception handler to maintain the flow of program --------------------------------------------------------------------
   except Exception as e:
     print(e)
     start_over = alphabet_to_number(start_over)
 
-# Actual Code of changing Numbers to Alphabets -----------------------------------------------------------------------------------------------------------------------
+# Function (V) Actual Code of changing Numbers to Alphabets ------------------------------------------------------------------------------
 def number_to_alphabet(start_over):
 
-  #  Using try and except to counter key error -----------------------------------------------------------------------------------------------------------------------
+  #  Using try and except to counter key error ------------------------------------------------------------------------------------------
   try: 
 
-    # The Numbers to Alphabet Dictionary ----------------------------------------------------------------------------------------------------------------------------
+    # The Numbers to Alphabet Dictionary -----------------------------------------------------------------------------------------------
     number_to_alphabet_dictionary = {
     "26" : "z",
     "25" : "y",
@@ -200,86 +199,86 @@ def number_to_alphabet(start_over):
     "*" : " "
     }
     
-    # Asking for user input (The message to be converted in alphabet form) ------------------------------------------------------------------------------------------
+    # Asking for user input (The message to be converted in alphabet form) --------------------------------------------------------------
     user_input = input("Please Enter a message: ")
     individual_number = user_input.split("-")
     
     output = ""
 
-    # Using the dictionary to find the key value pair of the letter from the user input above ------------------------------------------------------------------------
+    # Using the dictionary to find the key value pair of the letter from the user input above -------------------------------------------
     for number in individual_number:
       output += number_to_alphabet_dictionary[number]
     
-    # Printing the result --------------------------------------------------------------------------------------------------------------------------------------------
+    # Printing the result ----------------------------------------------------------------------------------------------------------------
     print("\n",output,"\n")
 
     # Asking the user to continue , change or stop converting -------------------------------------------------------------------------------------------------------
     start_over = input("Enter (A) or (N) to convert. Enter (H) for help and (E) to exit: ").lower()
 
-    # Making it go to help menu
-    if start_over == "h" :
-      start_over = help(start_over)
-
-    # Making it go to information menu
-    if start_over == "i" :
-      start_over = information(start_over)
-
-    # Making sure that the answer is either "y" or "n" if not then we send the user input to the first function to get the correct answer ----------------------------
+    # sends the user input to Function (I) -----------------------------------------------------------------------------------------------
     if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
       start_over = start(start_over)
-
-    # Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
+    
+    # sends the user input to Function (II) ----------------------------------------------------------------------------------------------
+    if start_over == "h":
+      start_over = help(start_over)
+    
+    # sends the user input to Function (III) ---------------------------------------------------------------------------------------------
+    if start_over == "i":
+      start_over = information(start_over)
+    
+    # sends the user input to Function (IV) ----------------------------------------------------------------------------------------------
+    if start_over == "a":
+      start_over = alphabet_to_number(start_over)
+    
+    # sends the user input to Function (V) -----------------------------------------------------------------------------------------------
     if start_over == "n":
       start_over = number_to_alphabet(start_over)
 
-    # Main sending from Alphabet to numbers menu -------------------------------------------------------------------------------------------
-    if start_over == "a":
-      start_over = alphabet_to_number(start_over)
-
-    # Main to exit menu ---------------------------------------------------------------------------------------------------------------
+    # sends the user input to Function (VI) ----------------------------------------------------------------------------------------------
     if start_over == "e":
       start_over = exit(start_over)
-
       
-  # Tackling the key error (basically if a alphabet is written instead of a number) ------------------------------------------------------------------------------------
+  # Tackling the key error (basically if a alphabet is written instead of a number) -----------------------------------------------------
   except KeyError:
     print("\nNumbers should be between 1 and 26 only\n")
     start_over = number_to_alphabet(start_over)
   
-  # A just in case exception handler to maintain the flow of program -------------------------------------------------------------------------------------------------
+  # A just in case exception handler to maintain the flow of program ---------------------------------------------------------------------
   except Exception as e :
     print(e)
     start_over = number_to_alphabet(start_over)
 
-# Stoping the program when asked by user to stop -------------------------------------------------------------------------------------------------------------------- 
+# Function (VI) Stoping the program when asked by user to stop --------------------------------------------------------------------------- 
 def exit(start_over):
   if start_over == "e":
     print(f"\nThanks for using the Program.\nThis Program is written by CodeSpec :) \nFor any questions feel free to email me at online.codespec@gmail.com\nCheers\n")
 
+# Below this is the part from where the code actually starts running in the begining ----------------------------------------------------
     
-# starting first time input ------------------------------------------------------------------------------------------------------------------------------------------
+# User Input taking for first time ---------------------------------------------------------------------------------------------------
 start_over = input("Type (A) to convert sentence from alphabet to numbers, Type (N) to convert numbers into alphabet, Type (H) for help and information and Type (E) if you want to exit the code: ").lower()
 
-# Makes the question to be asked again if user input wrong letter ----------------------------------------------------------------------------------------------------
+# sends the user input to Function (I) --------------------------------------------------------------------------------------------------
 if start_over != "a" and start_over != "n" and start_over != "h" and start_over != "e" and start_over != "i":
   start_over = start(start_over)
 
-# Main sending to help menu ---------------------------------------------------------------------------------------------------------
+# sends the user input to Function (II) -------------------------------------------------------------------------------------------------
 if start_over == "h":
   start_over = help(start_over)
 
-# Main sending to information menu ---------------------------------------------------------------------------------------------------------------
+# sends the user input to Function (III) ------------------------------------------------------------------------------------------------
 if start_over == "i":
   start_over = information(start_over)
 
-# Main sending from Alphabet to numbers menu -------------------------------------------------------------------------------------------
+# sends the user input to Function (IV) -------------------------------------------------------------------------------------------------
 if start_over == "a":
   start_over = alphabet_to_number(start_over)
 
-# Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
+# sends the user input to Function (V) --------------------------------------------------------------------------------------------------
 if start_over == "n":
   start_over = number_to_alphabet(start_over)
 
-# Main to exit menu ---------------------------------------------------------------------------------------------------------------
+# sends the user input to Function (VI) -------------------------------------------------------------------------------------------------
 if start_over == "e":
   start_over = exit(start_over)
