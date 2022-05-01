@@ -279,3 +279,7 @@ if start_over == "a":
 # Main sending from numbers to alphabets menu -------------------------------------------------------------------------------------------
 if start_over == "n":
   start_over = number_to_alphabet(start_over)
+
+# Main to exit menu ---------------------------------------------------------------------------------------------------------------
+if start_over == "e":
+  start_over = exit(start_over)
